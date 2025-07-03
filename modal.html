@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .popup-content h1, .popup-content h2, .popup-content h3 {
+            color: #333;
+        }
+        .popup-content p, .popup-content a {
+            color: #555;
+        }
+        .popup-content table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        .popup-content th, .popup-content td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .popup-content th {
+            background-color: #f2f2f2;
+        }
+        .popup-content a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .popup-content a:hover {
+            text-decoration: underline;
+        }
+        .popup-content button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .popup-content button:hover {
+            background-color: #0056b3;
+        }
+        .separator {
+           border-top: 2px solid #ddd;
+           margin: 20px 0;
+           height: 1px;
+           background-color: #ddd; /* Optional: for older browsers */
+        }		
+        ul {
+            margin: 0;
+            padding: 0 0 0 20px;
+        }
+    </style>
+  </head>
+  <body>
+      <div class="popup-content">
+        <img style="width: 70%; margin-bottom: 20px;" src="https://sonarqubetest.blob.core.windows.net/$web/Miro_AI_Prototyping.png?sp=r&st=2025-07-03T08:41:27Z&se=2025-07-31T16:41:27Z&sv=2024-11-04&sr=b&sig=xGNVsRN6UKOwFEQdWEnRnuLG9biENlJqdBV7UdjdUwY%3D" />
+          <h1>Prototyping in Miro - Your AI Superpowers (Beta)</h1>
+          <h2>Now Available in your Hexagon Miro Boards!</h2>
+          <p>Turn your ideas into fully developed concepts in seconds!</p>
+          <!-- Hero image pulled from Azure Blob Storage -->
+          <img src="https://sonarqubetest.blob.core.windows.net/$web/Miro_AI_Prototyping.png?sp=r&st=2025-07-02T10:56:05Z&se=2025-07-31T18:56:05Z&spr=https&sv=2024-11-04&sr=b&sig=oRkQM476u%2BlU06a8e5B7Mzhe1ori8T71MUYcTJwhqvk%3D" alt="Miro AI Prototyping" style="max-width:100%;height:auto;margin:20px 0;" />
+
+          <div class="separator"></div>
+
+          <h2>Explore the functionality</h2>
+          <p>Check out these resources to dive into the prototyping features:</p>
+          <ul>
+              <li>
+                  <a href="https://www.loom.com/share/8928f5e883614a838426147e5d080818" target="_blank">
+                      Miro AI Prototyping 2.0 Walkthrough – Watch Video
+                  </a>
+              </li>
+              <li>
+                  <a href="https://miro.com/app/board/uXjVILdM8W4=/" target="_blank">
+                      Getting Started with Prototyping – Make a copy of this board
+                  </a>
+              </li>
+          </ul>
+
+          <div class="separator"></div>
+
+          <h2>Live webinar training</h2>
+          <p>
+            Register now for the <strong>1‑Hour Webinar Training for Miro AI Prototyping</strong><br />
+            <strong>28 July, 14:00 – 15:00 CET</strong> with Miro Prototype Expert <em>Arnaud Becard</em>.
+          </p>
+          <p>(A recording will be available afterward.)</p>
+          <p>
+            <a href="https://events.teams.microsoft.com/event/3de47e66-7a50-4845-acb6-eeaa64cae011@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a" target="_blank">
+              <button type="button">Register here</button>
+            </a>
+          </p>
+
+          <button id="close" type="button">Close</button>
+				        
+    </div>
+
+    <script>
+      function close() {
+        miro.board.ui.closeModal();
+      }
+      document.getElementById("close").onclick = function () {
+        close();
+      };
+    </script>
+  </body>
+</html>
