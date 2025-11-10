@@ -1,113 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
-    <style>
-        body {
-            text-align: center;
-            margin-top: 50px;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-        .popup-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        .popup-content h1, .popup-content h2, .popup-content h3 {
-            color: #333;
-        }
-        .popup-content p, .popup-content a {
-            color: #555;
-        }
-        .popup-content table {
-            width: 100%;
-            margin: 20px 0;
-            border-collapse: collapse;
-        }
-        .popup-content th, .popup-content td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        .popup-content th {
-            background-color: #f2f2f2;
-        }
-        .popup-content a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        .popup-content a:hover {
-            text-decoration: underline;
-        }
-        .popup-content button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .popup-content button:hover {
-            background-color: #0056b3;
-        }
-        .separator {
-           border-top: 2px solid #ddd;
-           margin: 20px 0;
-           height: 1px;
-           background-color: #ddd; /* Optional: for older browsers */
-        }		
-        ul {
-            margin: 0;
-            padding: 0 0 0 20px;
-        }
-    </style>
-  </head>
-  <body>
-      <div class="popup-content">
-        <img style="width: 70%; margin-bottom: 20px;" src="https://cdn.cookielaw.org/logos/6be93158-329e-4dc6-bc36-2c8ead733558/0197372a-be9f-7d4c-9d56-4c46a46e99a9/647f1219-4f86-4c72-aac5-fe4185248328/Hexagon_logo_horz_black.png" />
-          <h1>Prototyping in Miro - Your AI Superpowers (Beta)</h1>
-          <h2>Now Available in your Hexagon Miro Boards!</h2>
-          <p>Turn your ideas into fully developed concepts in seconds!</p>
-          <!-- Hero image pulled from Azure Blob Storage -->
-          <img src="https://javedfaruq.github.io/modalpopup/miro_announcement.png" alt="Miro AI Prototyping" style="max-width:100%;height:auto;margin:20px 0;" />
-
-          <div class="separator"></div>
-
-          <h2>Explore the functionality</h2>
-          <p>Check out these resources to dive into the prototyping features:</p>
-          <ul>
-              <li>
-                  <a href="https://www.loom.com/share/8928f5e883614a838426147e5d080818" target="_blank">
-                      Miro AI Prototyping 2.0 Walkthrough&nbsp;-&nbsp;Watch Video
-                  </a>
-              </li>
-              <li>
-                  <a href="https://miro.com/app/board/uXjVILdM8W4=/" target="_blank">
-                      Getting Started with Prototyping&nbsp;-&nbsp;Make a copy of this board
-                  </a>
-              </li>
-          </ul>
-
-          <div class="separator"></div>
-
-          <h2>Live webinar training</h2>
-          <p>
-            Register now for the <strong>1&nbsp;-&nbsp;Hour Webinar Training for Miro AI Prototyping</strong><br />
-            <strong>28th&nbsp;July,&nbsp;14:00&nbsp;-&nbsp;15:00&nbsp;CET</strong> with Miro Prototype Expert <em>Arnaud&nbsp;Becard</em>.
-          </p>
-          <p>(A recording will be available afterward.)</p>
-          <p>
-            <a href="https://events.teams.microsoft.com/event/3de47e66-7a50-4845-acb6-eeaa64cae011@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a" target="_blank">
-              <button type="button">Register here</button>
-            </a>
-          </p>
-				        
+<head>
+<script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left;
+    }
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .header img {
+        max-width: 100%;
+        height: auto;
+    }
+    .content {
+        margin-bottom: 30px;
+    }
+    h2 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+    h3 {
+        color: #666;
+        margin-bottom: 20px;
+    }
+    h4 {
+        color: #333;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    p {
+        margin-bottom: 15px;
+        color: #333;
+    }
+    .highlight {
+        color: #039AAB;
+        font-weight: bold;
+    }
+    .register-link {
+        display: inline-block;
+        background-color: #0097BA;
+        color: white;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    .register-link:hover {
+        background-color: #007a99;
+    }
+    .close-button {
+        display: block;
+        margin: 30px auto 0;
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .close-button:hover {
+        background-color: #e0e0e0;
+    }
+    ul {
+        margin: 15px 0;
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 8px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://hexagon.com/_next/image?url=https%3A%2F%2Fichs-p-001.sitecorecontenthub.cloud%2Fapi%2Fpublic%2Fcontent%2Fa-s-s-e-t---3-9-4-2-4-39424%3Fv%3Dba59b6e9&w=1920&q=75" alt="Miro Training"/>
+        </div>
+        
+        <div class="content">
+            <h2>1h Miro Training: New Feature - Miro Engage</h2>
+            <h3>Make Every Workshop & Meeting Interactive!</h3>
+            
+            <p>Discover how Miro Engage transforms collaboration with real-time polls, voting, and live results. Attendees can join from their phones or through a shared Miro board to vote, share opinions, and see instant feedback — making every session more engaging and inclusive.</p>
+            
+            <p><b>Date:</b> <span class="highlight">24.11.2025</span></p>
+            <p><b>Time:</b> <span class="highlight">14:00 to 15:00 CET (1 hour)</span></p>
+            <p><b>Location:</b> Webinar</p>
+            
+            <h4>What you'll learn:</h4>
+            <ul>
+                <li>Best practices for hosting and facilitating workshops in Miro</li>
+                <li>How to use Miro Engage, the newest feature that makes collaboration dynamic and fun</li>
+                <li>Live demos of interactive polls, multiple-choice questions, and real-time participation tools</li>
+                <li>A sneak peek into the Miro Engage product roadmap</li>
+            </ul>
+            
+            <h4>Why attend?</h4>
+            <ul>
+                <li>Make every meeting more inclusive and interactive</li>
+                <li>Learn how to capture insights effortlessly</li>
+                <li>Get practical tips you can apply immediately</li>
+            </ul>
+            
+            <p><b>Special Feature:</b> Attendees can join from their phones or through a shared Miro board to vote, share opinions, and see live results — making every interaction more engaging and inclusive.</p>
+            
+            <a href="https://events.teams.microsoft.com/event/7adbd173-5972-46a3-a34a-36c9a7123a54@1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a" class="register-link">👉 Register Now</a>
+        </div>        
     </div>
 
     <script>
@@ -120,3 +127,4 @@
     </script>
   </body>
 </html>
+
