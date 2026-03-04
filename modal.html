@@ -3,264 +3,142 @@
 <head>
 <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
 <style>
-    * {
-        box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
         font-family: Arial, sans-serif;
         margin: 0;
-        padding: 20px;
-        line-height: 1.6;
+        padding: 10px 16px;
+        line-height: 1.4;
         background-color: #f9f9f9;
     }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: left;
-    }
-    .header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .header img {
-        max-width: 100%;
-        height: auto;
-    }
+    .container { max-width: 800px; margin: 0 auto; }
+    .header { text-align: center; margin-bottom: 10px; }
+    .header img { max-width: 220px; height: auto; }
 
-    /* Alert banner */
     .alert-banner {
         background-color: #fff3cd;
         border-left: 5px solid #FFC300;
         border-radius: 4px;
-        padding: 16px 20px;
-        margin-bottom: 24px;
+        padding: 7px 12px;
+        margin-bottom: 8px;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 8px;
     }
-    .alert-banner .alert-icon {
-        font-size: 28px;
-        flex-shrink: 0;
-    }
-    .alert-banner .alert-text {
-        font-size: 15px;
-        font-weight: bold;
-        color: #7d5a00;
-        margin: 0;
-    }
+    .alert-banner .alert-icon { font-size: 18px; flex-shrink: 0; }
+    .alert-banner .alert-text { font-size: 13px; font-weight: bold; color: #7d5a00; margin: 0; }
 
     .content {
         background-color: #ffffff;
         border-radius: 6px;
-        padding: 28px 32px;
-        margin-bottom: 30px;
+        padding: 12px 16px;
+        margin-bottom: 8px;
         box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
-    h2 {
-        color: #222;
-        margin-top: 0;
-        margin-bottom: 6px;
-        font-size: 22px;
-    }
-    h3 {
-        color: #555;
-        margin-top: 0;
-        margin-bottom: 22px;
-        font-size: 15px;
-        font-weight: normal;
-    }
-    h4 {
-        color: #222;
-        margin-top: 28px;
-        margin-bottom: 12px;
-        font-size: 15px;
-        border-bottom: 1px solid #eeeeee;
-        padding-bottom: 6px;
-    }
-    p {
-        margin-bottom: 14px;
-        color: #333;
-        font-size: 14px;
-    }
+    h2 { color: #222; margin: 0 0 2px 0; font-size: 17px; }
+    h3 { color: #555; margin: 0 0 8px 0; font-size: 12px; font-weight: normal; }
+    h4 { color: #222; margin: 10px 0 5px 0; font-size: 12px; border-bottom: 1px solid #eee; padding-bottom: 3px; }
+    p  { margin: 0 0 5px 0; color: #333; font-size: 12px; }
 
-    /* Cost callout */
     .cost-callout {
         background-color: #fef2f2;
         border: 1px solid #fca5a5;
-        border-radius: 6px;
-        padding: 14px 18px;
-        margin: 20px 0;
+        border-radius: 5px;
+        padding: 7px 12px;
+        margin: 7px 0;
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 10px;
     }
-    .cost-callout .cost-icon {
-        font-size: 26px;
-        flex-shrink: 0;
-    }
-    .cost-callout .cost-text {
-        color: #991b1b;
-        font-size: 14px;
-        margin: 0;
-    }
-    .cost-callout .cost-text strong {
-        font-size: 15px;
-    }
+    .cost-callout .cost-icon { font-size: 18px; flex-shrink: 0; }
+    .cost-callout .cost-text { color: #991b1b; font-size: 12px; margin: 0; }
 
-    /* Checklist */
-    ul.checklist {
-        list-style: none;
-        margin: 14px 0;
-        padding: 0;
-    }
-    ul.checklist li {
-        padding: 8px 0 8px 32px;
+    ul.checklist, ul.warning-list { list-style: none; margin: 5px 0; padding: 0; }
+    ul.checklist li, ul.warning-list li {
+        padding: 3px 0 3px 24px;
         position: relative;
-        font-size: 14px;
+        font-size: 12px;
         color: #333;
         border-bottom: 1px solid #f0f0f0;
     }
-    ul.checklist li:last-child {
-        border-bottom: none;
-    }
-    ul.checklist li::before {
-        content: "✓";
-        position: absolute;
-        left: 6px;
-        color: #039AAB;
-        font-weight: bold;
-        font-size: 15px;
-    }
+    ul.checklist li:last-child, ul.warning-list li:last-child { border-bottom: none; }
+    ul.checklist li::before { content: "✓"; position: absolute; left: 5px; color: #039AAB; font-weight: bold; font-size: 12px; }
+    ul.warning-list li::before { content: "⚠"; position: absolute; left: 3px; color: #d97706; font-size: 12px; }
 
-    /* Warning list */
-    ul.warning-list {
-        list-style: none;
-        margin: 14px 0;
-        padding: 0;
-    }
-    ul.warning-list li {
-        padding: 8px 0 8px 32px;
-        position: relative;
-        font-size: 14px;
-        color: #333;
-        border-bottom: 1px solid #f0f0f0;
-    }
-    ul.warning-list li:last-child {
-        border-bottom: none;
-    }
-    ul.warning-list li::before {
-        content: "⚠";
-        position: absolute;
-        left: 4px;
-        color: #d97706;
-        font-size: 14px;
-    }
-
-    /* Info box */
     .info-box {
         background-color: #f0fbfc;
         border-left: 4px solid #039AAB;
         border-radius: 4px;
-        padding: 14px 18px;
-        margin: 20px 0;
-        font-size: 14px;
+        padding: 7px 12px;
+        margin: 7px 0;
+        font-size: 12px;
         color: #1a5f65;
     }
-    .info-box strong {
-        display: block;
-        margin-bottom: 4px;
-        font-size: 14px;
-    }
+    .info-box strong { display: block; margin-bottom: 2px; font-size: 12px; }
 
-    /* Footer message */
     .footer-message {
         text-align: center;
         background: linear-gradient(135deg, #039AAB 0%, #0097BA 100%);
         border-radius: 6px;
-        padding: 20px 28px;
-        margin-top: 8px;
+        padding: 9px 16px;
         color: #fff;
-        font-size: 14px;
+        font-size: 12px;
         font-style: italic;
         font-weight: 500;
-        letter-spacing: 0.2px;
-    }
-    .footer-message .footer-icon {
-        display: block;
-        font-size: 22px;
-        margin-bottom: 6px;
-        font-style: normal;
     }
 </style>
 </head>
 <body>
-    <div class="container">
+<div class="container">
 
-        <div class="header">
-            <img src="https://hexagon.com/_next/image?url=https%3A%2F%2Fichs-p-001.sitecorecontenthub.cloud%2Fapi%2Fpublic%2Fcontent%2Fa-s-s-e-t---3-9-4-2-4-39424%3Fv%3Dba59b6e9&w=1920&q=75" alt="Hexagon" />
-        </div>
-
-        <!-- Alert Banner -->
-        <div class="alert-banner">
-            <span class="alert-icon">⚠️</span>
-            <p class="alert-text">Important Notice: Miro Licensing &amp; Cost Awareness</p>
-        </div>
-
-        <div class="content">
-            <h2>Miro License Management</h2>
-            <h3>Every action counts — please use Miro access responsibly.</h3>
-
-            <p>
-                In Miro, access is granted <strong>instantly</strong> the moment an invited user begins interacting with a board.
-                Even a single comment can automatically trigger a paid license allocation — with immediate cost impact to Hexagon.
-            </p>
-
-            <!-- Cost Callout -->
-            <div class="cost-callout">
-                <span class="cost-icon">💶</span>
-                <p class="cost-text">
-                    <strong>Each activated Miro user costs Hexagon $165 per year.</strong><br/>
-                    Every editing or commenting action immediately activates a paid license.
-                </p>
-            </div>
-
-            <h4>Before Inviting Someone to Miro</h4>
-            <p>Please ensure the person you are inviting meets <strong>both</strong> of the following criteria:</p>
-            <ul class="checklist">
-                <li>They truly require editing or commenting access — not just view-only.</li>
-                <li>They will actively and regularly use Miro for their work.</li>
-            </ul>
-
-            <h4>If You Were Invited But Don't Need Edit Access</h4>
-            <p>If view-only access is sufficient for your needs, please be aware of the following:</p>
-            <ul class="warning-list">
-                <li>Do <strong>not</strong> add comments to any board.</li>
-                <li>Do <strong>not</strong> start editing any board content.</li>
-                <li>Any editing or commenting action <strong>immediately</strong> activates a paid license.</li>
-            </ul>
-
-            <!-- Info Box -->
-            <div class="info-box">
-                <strong>📋 What to do if you only need view access?</strong>
-                Contact the board owner and confirm that view-only access is sufficient.
-                Do not interact with the board beyond reading its content.
-            </div>
-
-            <h4>Why This Matters</h4>
-            <p>
-                Unintended license activations accumulate into significant unplanned costs.
-                By being intentional about how we grant and use Miro access, we protect Hexagon's software budget
-                and ensure licenses remain available for those who genuinely need them.
-            </p>
-        </div>
-
-        <!-- Footer Message -->
-        <div class="footer-message">
-            <span class="footer-icon">🎯</span>
-            Let's keep our Miro licenses lean, intentional, and under control.
-        </div>
-
+    <div class="header">
+        <img src="https://hexagon.com/_next/image?url=https%3A%2F%2Fichs-p-001.sitecorecontenthub.cloud%2Fapi%2Fpublic%2Fcontent%2Fa-s-s-e-t---3-9-4-2-4-39424%3Fv%3Dba59b6e9&w=1920&q=75" alt="Hexagon" />
     </div>
+
+    <div class="alert-banner">
+        <span class="alert-icon">⚠️</span>
+        <p class="alert-text">Important Notice: Miro Licensing &amp; Cost Awareness</p>
+    </div>
+
+    <div class="content">
+        <h2>Miro License Management</h2>
+        <h3>Every action counts — please use Miro access responsibly.</h3>
+
+        <p>In Miro, access is granted <strong>instantly</strong> the moment an invited user begins interacting with a board. Even a single comment can automatically trigger a paid license — with immediate cost impact to Hexagon.</p>
+
+        <div class="cost-callout">
+            <span class="cost-icon">💶</span>
+            <p class="cost-text"><strong>Each activated Miro user costs Hexagon $165 per year.</strong><br/>Any editing or commenting action immediately activates a paid license.</p>
+        </div>
+
+        <h4>Before Inviting Someone to Miro</h4>
+        <p>Please ensure the person meets <strong>both</strong> criteria:</p>
+        <ul class="checklist">
+            <li>They truly require editing or commenting access — not just view-only.</li>
+            <li>They will actively and regularly use Miro for their work.</li>
+        </ul>
+
+        <h4>If You Were Invited But Don't Need Edit Access</h4>
+        <ul class="warning-list">
+            <li>Do <strong>not</strong> add comments to any board.</li>
+            <li>Do <strong>not</strong> start editing any board content.</li>
+            <li>Any editing or commenting action <strong>immediately</strong> activates a paid license.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>📋 Only need to view?</strong>
+            Contact the board owner to confirm view-only access. Do not interact with the board beyond reading its content.
+        </div>
+
+        <h4>Why This Matters</h4>
+        <p>Unintended activations accumulate into significant unplanned costs. Being intentional protects Hexagon's software budget and keeps licenses available for those who genuinely need them.</p>
+    </div>
+
+    <div class="footer-message">
+        🎯 Let's keep our Miro licenses lean, intentional, and under control.
+    </div>
+
+</div>
 
     <script>
       function close() {
@@ -272,6 +150,7 @@
     </script>
   </body>
 </html>
+
 
 
 
